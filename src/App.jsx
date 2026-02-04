@@ -76,7 +76,7 @@ const App = () => {
     {
       degree: "MS Software Engineering",
       school: "Cecos University Peshawar",
-      year: "2024-2026",
+      year: "2024 - 2026",
       grade: "Course Work Completed",
       desc: "Focusing on advanced AI research and software architecture."
     },
@@ -90,7 +90,7 @@ const App = () => {
   ];
 
   const certifications = [
-       {
+    {
       title: "Intro to AI & ML on Google Cloud",
       provider: "Coursera",
       icon: Cloud,
@@ -107,9 +107,9 @@ const App = () => {
      {
       title: "Introduction to DevOps",
       provider: "Coursera",
-      icon: Brain,
+      icon: Layers,
       link: "https://www.coursera.org/account/accomplishments/verify/DCBHZGQMDMRT",
-      desc: "Test Driven Development (TDD), CI/CD, Cross-Functional Collaboration, DevOps ."
+      desc: "Test Driven Development (TDD), CI/CD, Cross-Functional Collaboration."
     },
     {
       title: "Programming for Everybody (Python)",
@@ -176,7 +176,7 @@ const App = () => {
       description: "Deployed a hyperspectral detection system using classical ML algorithms (SVM, XGBoost) served via a Flask API.",
       tech: ["Scikit-learn", "XGBoost", "Flask"],
       gradient: "from-cyan-900/80 to-emerald-900/80",
-      github: "https://github.com/hazratusmankhan/Honey-Adulteration",
+      github: "#",
       demo: "#"
     },
     {
@@ -195,16 +195,14 @@ const App = () => {
     ? projects 
     : projects.filter(p => p.category === activeCategory);
 
-  const skills = {
-    languages: [
-      { name: "Python", level: 95 },
-      { name: "SQL", level: 85 }
-    ],
-    ai_ml: ["PyTorch", "TensorFlow", "Scikit-learn", "Pandas", "NumPy", "Matplotlib"],
-    vision: ["YOLOv8", "Vision Transformers (ViT)", "Swin Transformer", "OpenCV"],
-    gen_ai: ["LangChain", "RAG", "Groq", "Pinecone", "Gradio"],
-    mlops: ["n8n", "AWS", "Flask", "Streamlit", "Docker", "Git"]
-  };
+  const skills = [
+    { name: "Python & SQL", icon: Code, color: "text-cyan-400" },
+    { name: "PyTorch & TensorFlow", icon: Brain, color: "text-fuchsia-400" },
+    { name: "Computer Vision (YOLO)", icon: Eye, color: "text-cyan-400" },
+    { name: "Generative AI (LLMs)", icon: MessageSquare, color: "text-fuchsia-400" },
+    { name: "AWS & Docker", icon: Server, color: "text-cyan-400" },
+    { name: "DevOps & CI/CD", icon: Layers, color: "text-fuchsia-400" }
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -286,7 +284,7 @@ const App = () => {
   );
 
   return (
-    <div className="min-h-screen bg-[#030712] text-slate-300 selection:bg-cyan-500/30 font-sans relative">
+    <div className="min-h-screen bg-[#030712] text-slate-300 selection:bg-cyan-500/30 font-sans relative overflow-x-hidden">
       
       {/* Background with subtle animated gradient */}
       <div className="fixed inset-0 -z-10 h-full w-full bg-[#030712]">
@@ -402,39 +400,51 @@ const App = () => {
         </div>
       </section>
 
-      {/* About Section */}
+      {/* About Section - Side-by-Side Layout */}
       <section id="about" className="py-32 bg-[#050914] relative border-y border-white/5">
         <div className="w-full max-w-[95%] mx-auto px-6 relative z-10">
-          <div className="flex flex-col lg:flex-row gap-20 items-center">
-            <div className="w-full lg:w-1/2">
-              <div className="relative group perspective-1000">
+          <div className="grid lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20 items-center">
+            
+            {/* Left Column: Image (Sticky on Desktop) */}
+            <div className="flex justify-center lg:sticky lg:top-32">
+              <div className="relative group perspective-1000 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
                 <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-fuchsia-500 rounded-full blur opacity-20 group-hover:opacity-60 transition duration-1000"></div>
-                <div className="relative bg-[#030712] rounded-full w-72 h-72 md:w-96 md:h-96 mx-auto flex items-center justify-center border border-white/10 shadow-2xl group-hover:scale-105 transition-transform duration-500 overflow-hidden">
+                <div className="relative bg-[#030712] rounded-full w-full h-full flex items-center justify-center border border-white/10 shadow-2xl group-hover:scale-105 transition-transform duration-500 overflow-hidden">
                    <img 
                       src="profile.jpeg" 
                       alt="Hazrat Usman" 
                       className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
                    />
-                   
-                   {/* Tech Overlays */}
                    <div className="absolute inset-0 border border-cyan-500/30 rounded-full animate-spin-slow-reverse pointer-events-none" style={{animationDuration: '15s'}}></div>
                    <div className="absolute inset-4 border border-fuchsia-500/20 rounded-full animate-spin-slow pointer-events-none" style={{borderStyle: 'dashed', animationDuration: '20s'}}></div>
                 </div>
               </div>
             </div>
             
-            <div className="w-full lg:w-1/2">
+            {/* Right Column: Content */}
+            <div>
               <div className="flex items-center gap-3 mb-8">
                 <User className="text-cyan-500" />
                 <h2 className="text-4xl font-bold text-white">About Me</h2>
               </div>
               
-              <p className="text-slate-300 mb-8 leading-relaxed text-lg text-justify">
-                As an <strong className="text-white">Aspiring AI Engineer</strong>, instead of just handing off a trained model, I bridge the gap to <strong className="text-cyan-400">software engineering</strong>, designing the full system to ensure the AI actually works in production. My background is rooted in rigorous software engineering, which means I treat AI code with the same <strong className="text-white">production standards</strong> as backend infrastructure. In my recent work, including my time at <strong className="text-fuchsia-400">NCAI (UET Peshawar)</strong>, I’ve focused on building real-world solutions. I’ve moved beyond simple notebooks to architecting full pipelines using <strong className="text-cyan-400">Flask and FastAPI</strong> to serve models, automating workflows with <strong className="text-cyan-400">n8n</strong>, and deploying scalable solutions on <strong className="text-cyan-400">AWS</strong>. Technically, I have deep roots in <strong className="text-white">supervised learning</strong>; my work on detecting <strong className="text-fuchsia-400">honey adulteration</strong> using hyperspectral data was even published internationally. Recently, I’ve been rounding out my skillset with <strong className="text-white">frontend development</strong>. I’ve realized that for AI to be truly impactful, it needs to be usable, not just accurate. I’m looking for an opportunity where I can apply this full-stack perspective—solving problems from the core algorithms all the way to the user interface. I am currently looking for a <strong className="text-cyan-400">Full Stack AI Engineer Intern Role</strong>.
-              </p>
+              <div className="space-y-6 text-slate-300 text-lg leading-relaxed">
+                <p>
+                  As an <strong className="text-white">Aspiring AI Engineer</strong>, I don't just train models—I engineer <strong className="text-cyan-400">production-ready systems</strong>. 
+                  Bridging the gap between data science and software engineering, I ensure AI solutions are scalable, maintainable, and impactful.
+                </p>
+                <p>
+                  My experience at <strong className="text-fuchsia-400">NCAI (UET Peshawar)</strong> honed my ability to move beyond notebooks. I architect end-to-end pipelines using 
+                  <strong className="text-cyan-400"> Flask/FastAPI</strong>, automate workflows with <strong className="text-cyan-400">n8n</strong>, and deploy on <strong className="text-cyan-400">AWS</strong>. 
+                  My research on hyperspectral honey adulteration detection stands as a testament to my rigorous approach to supervised learning.
+                </p>
+                <p>
+                  Currently seeking a <strong className="text-cyan-400">Full Stack AI Engineer Intern</strong> role to apply this holistic skillset—solving problems from core algorithms to the user interface.
+                </p>
+              </div>
 
-              {/* STYLED GRID CARDS */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* STYLED GRID CARDS - Line 424 Area */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
                 {[
                   { label: "AI Automation", icon: Zap, color: "cyan" },
                   { label: "Computer Vision", icon: Eye, color: "fuchsia" },
@@ -448,9 +458,7 @@ const App = () => {
                                 hover:shadow-[0_0_30px_rgba(${item.color === 'cyan' ? '6,182,212' : '217,70,239'},0.2)] 
                                 transition-all duration-300 cursor-default group`}
                   >
-                    {/* Decorative side accent */}
                     <div className={`absolute left-0 top-0 bottom-0 w-1 bg-${item.color}-500 opacity-0 group-hover:opacity-100 transition-opacity`}></div>
-                    
                     <div className={`p-3 rounded-xl bg-${item.color}-500/10 text-${item.color}-500 group-hover:text-${item.color}-400 group-hover:bg-${item.color}-500/20 transition-colors`}>
                       <item.icon className="w-6 h-6" />
                     </div>
@@ -600,7 +608,7 @@ const App = () => {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project, index) => (
               <div key={index} className="group bg-[#050914] rounded-3xl overflow-hidden border border-white/5 hover:border-cyan-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-900/20 flex flex-col h-full">
                 <div className={`h-72 w-full relative overflow-hidden bg-gradient-to-br ${project.gradient}`}>
@@ -683,86 +691,13 @@ const App = () => {
             <h2 className="text-4xl font-bold text-white">Technical Skills</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Languages */}
-            <div className="bg-[#050914] p-8 rounded-3xl border border-white/5 hover:border-cyan-500/30 transition-colors group">
-              <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
-                <Code className="text-cyan-400 w-6 h-6" /> Languages
-              </h3>
-              <div className="space-y-6">
-                {skills.languages.map((skill, i) => (
-                  <div key={i}>
-                    <div className="flex justify-between mb-2">
-                      <span className="text-sm font-medium text-slate-200">{skill.name}</span>
-                      <span className="text-xs text-cyan-400 font-mono">{skill.level}%</span>
-                    </div>
-                    <div className="w-full bg-[#030712] rounded-full h-2 overflow-hidden border border-white/5">
-                      <div 
-                        className="bg-gradient-to-r from-cyan-600 to-cyan-400 h-2 rounded-full group-hover:shadow-[0_0_10px_rgba(6,182,212,0.5)] transition-all duration-500"
-                        style={{ width: `${skill.level}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            {skills.map((skill, i) => (
+              <div key={i} className="bg-[#050914] p-6 rounded-2xl border border-white/5 hover:border-cyan-500/30 transition-all flex flex-col items-center justify-center text-center group hover:-translate-y-1">
+                <skill.icon size={32} className={`mb-4 ${skill.color} group-hover:scale-110 transition-transform`} />
+                <span className="text-slate-300 text-sm font-medium group-hover:text-white transition-colors">{skill.name}</span>
               </div>
-            </div>
-
-            {/* AI & ML */}
-            <div className="bg-[#050914] p-8 rounded-3xl border border-white/5 hover:border-fuchsia-500/30 transition-colors">
-              <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
-                <Brain className="text-fuchsia-400 w-6 h-6" /> AI & Machine Learning
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.ai_ml.map((tool, i) => (
-                  <span key={i} className="px-3 py-1.5 bg-[#030712] border border-white/10 rounded-lg text-sm text-slate-300 hover:text-fuchsia-400 hover:border-fuchsia-500/30 transition-colors cursor-default">
-                    {tool}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-             {/* Computer Vision */}
-             <div className="bg-[#050914] p-8 rounded-3xl border border-white/5 hover:border-cyan-500/30 transition-colors">
-              <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
-                <Eye className="text-cyan-400 w-6 h-6" /> Computer Vision
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.vision.map((tool, i) => (
-                  <span key={i} className="px-3 py-1.5 bg-[#030712] border border-white/10 rounded-lg text-sm text-slate-300 hover:text-cyan-400 hover:border-cyan-500/30 transition-colors cursor-default">
-                    {tool}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Gen AI & NLP */}
-            <div className="bg-[#050914] p-8 rounded-3xl border border-white/5 hover:border-fuchsia-500/30 transition-colors">
-              <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
-                <MessageSquare className="text-fuchsia-400 w-6 h-6" /> Gen AI & NLP
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.gen_ai.map((tool, i) => (
-                  <span key={i} className="px-3 py-1.5 bg-[#030712] border border-white/10 rounded-lg text-sm text-slate-300 hover:text-fuchsia-400 hover:border-fuchsia-500/30 transition-colors cursor-default">
-                    {tool}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* MLOps */}
-            <div className="bg-[#050914] p-8 rounded-3xl border border-white/5 hover:border-cyan-500/30 transition-colors">
-              <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
-                <Server className="text-cyan-400 w-6 h-6" /> MLOps & Deployment
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.mlops.map((tool, i) => (
-                  <span key={i} className="px-3 py-1.5 bg-[#030712] border border-white/10 rounded-lg text-sm text-slate-300 hover:text-cyan-400 hover:border-cyan-500/30 transition-colors cursor-default">
-                    {tool}
-                  </span>
-                ))}
-              </div>
-            </div>
-
+            ))}
           </div>
         </div>
       </section>
@@ -775,7 +710,7 @@ const App = () => {
             <h2 className="text-4xl font-bold text-white">Certifications</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {certifications.map((cert, i) => (
               <a 
                 key={i} 
@@ -804,27 +739,34 @@ const App = () => {
       </section>
 
       {/* Presentations & Awards Section */}
-      <section className="py-32 bg-[#030712]">
+      <section className="py-32 bg-[#030712] relative">
+        {/* Background decorative gradient */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-1 bg-gradient-to-r from-transparent via-fuchsia-500 to-transparent opacity-20"></div>
+        
         <div className="w-full max-w-[95%] mx-auto px-6">
           <div className="flex items-center gap-3 mb-16 justify-center">
-            <Award className="text-cyan-500" />
-            <h2 className="text-4xl font-bold text-white">Presentations & Awards</h2>
+            <Award className="text-fuchsia-500 w-8 h-8" />
+            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-purple-400">Presentations & Awards</h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {presentations.map((pub, i) => (
-              <div key={i} className="bg-[#050914] p-8 rounded-3xl border border-white/5 hover:border-white/20 transition-all group cursor-pointer hover:-translate-y-1">
-                 <div className="flex justify-between items-start mb-6">
-                    <span className="px-3 py-1 bg-[#030712] rounded-full text-xs font-mono text-cyan-400 border border-cyan-500/20">{pub.platform}</span>
+              <div key={i} className="bg-[#050914] p-8 rounded-3xl border border-white/5 hover:border-fuchsia-500/40 transition-all duration-500 group cursor-pointer hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(217,70,239,0.15)] relative overflow-hidden">
+                 
+                 {/* Decorative glow inside card */}
+                 <div className="absolute top-0 right-0 w-24 h-24 bg-fuchsia-500/10 rounded-full blur-2xl -mr-10 -mt-10 group-hover:bg-fuchsia-500/20 transition-colors"></div>
+
+                 <div className="flex justify-between items-start mb-6 relative z-10">
+                    <span className="px-3 py-1 bg-fuchsia-500/10 rounded-full text-xs font-mono text-fuchsia-400 border border-fuchsia-500/20 group-hover:bg-fuchsia-500/20 transition-colors">{pub.platform}</span>
                     <ExternalLink className="w-5 h-5 text-slate-500 group-hover:text-white transition-colors" />
                  </div>
-                 <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors line-clamp-2">
+                 <h3 className="text-xl font-bold text-white mb-3 group-hover:text-fuchsia-300 transition-colors line-clamp-2 relative z-10">
                    {pub.title}
                  </h3>
-                 <div className="flex items-center gap-3 text-sm text-slate-500 mt-6 border-t border-white/5 pt-4">
-                    <span>{pub.date}</span>
-                    <span className="w-1 h-1 rounded-full bg-slate-700"></span>
-                    <span>{pub.readTime}</span>
+                 <div className="flex items-center gap-3 text-sm text-slate-500 mt-6 border-t border-white/5 pt-4 relative z-10">
+                    <span className="group-hover:text-slate-300 transition-colors">{pub.date}</span>
+                    <span className="w-1 h-1 rounded-full bg-fuchsia-500"></span>
+                    <span className="group-hover:text-slate-300 transition-colors">{pub.readTime}</span>
                  </div>
               </div>
             ))}

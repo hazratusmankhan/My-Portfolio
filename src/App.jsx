@@ -432,7 +432,7 @@ const App = () => {
                   My research on hyperspectral honey adulteration detection stands as a testament to my rigorous approach to supervised learning.
                 </p>
                 <p>
-                  Currently seeking a <strong className="text-cyan-400">Full Stack AI Engineer Intern</strong> role to apply this holistic skillset—solving problems from core algorithms to the user interface.
+                  Currently seeking a <strong className="text-cyan-400">Full Stack AI Engineer</strong> role to apply this holistic skillset—solving problems from core algorithms to the user interface.
                 </p>
               </div>
 

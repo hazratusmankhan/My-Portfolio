@@ -77,7 +77,7 @@ const App = () => {
       degree: "MS Software Engineering",
       school: "Cecos University Peshawar",
       year: "2024 - 2026",
-      grade: "Course Work Completed",
+      grade: "Completed",
       desc: "Focusing on advanced AI research and software architecture."
     },
     {
@@ -128,13 +128,6 @@ const App = () => {
   ];
 
   const presentations = [
-    {
-      title: "Project Presentation",
-      platform: "DATAFEST 2024",
-      date: "Sep 2024",
-      readTime: "Islamabad",
-      link: "#"
-    },
     {
       title: "ICT Pasha Awards",
       platform: "Competition",
@@ -524,9 +517,30 @@ const App = () => {
           <div className="relative border-l border-slate-800/50 ml-3 md:ml-6 space-y-16">
             {[
               {
+              role: "AI Intern", //[cite: 1]
+              company: "CyberZeus Software Systems", //[cite: 1]
+              period: "July 2026 - Sep 2026", //[cite: 1]
+              location: "CyberZeus Software Systems",
+              description: "Built an out-of-core Polars EDA pipeline for a 6.55 GB network intrusion dataset, trained binary and multi-class XGBoost classifiers, and researched Contextual RAG strategies for the CISGuard Intelligence Layer to design an AI report-generation pipeline[cite: 1].",
+              icon: Eye,
+              current: false,
+              tags: ["Polars", "XGBoost", "RAG", "Data Pipelines"]
+            },
+              {
+              role: "Artificial Intelligence Apprentice", //[cite: 1]
+              company: "Centre of Digital Governance and Agentic Innovation (CDGAI)", //[cite: 1]
+              period: "Feb 2026 - July 2026", //[cite: 1]
+              location: "Peshawar, Pakistan", //[cite: 1]
+              description: "Developed a RAG admissions chatbot for Cecos University using FAISS and BM25 retrieval, and built a production chatbot on PostgreSQL pgvector[cite: 1]. Engineered a lightweight chatbot using Turbo Vec 4-bit vector quantization, and used Google Earth Engine (GEE) to analyze satellite and multispectral UAV imagery for environmental monitoring[cite: 1].",
+              icon: Eye,
+              current: false, 
+              tags: ["RAG", "Vector Databases", "Google Earth Engine", "Chatbots"]
+            },      
+              
+              {
                 role: "AI Computer Vision Intern",
                 company: "National Center of Artificial Intelligence (NCAI)",
-                period: "June 2025 - Nov 2025",
+                period: "May 2025 - Jan 2026",
                 location: "Onsite, Peshawar",
                 description: "Developed hyperspectral Honey Adulteration Detection using SVM/XGBoost. Engineered a Traffic Management System (Vehicle, Helmet, OCR) using YOLOv8. Built RAG-based chatbots and automated ML pipelines with n8n and AWS.",
                 icon: Eye,
@@ -782,7 +796,7 @@ const App = () => {
             <div className="w-full md:w-1/2">
               <h2 className="text-5xl font-bold text-white mb-8">Let's Connect</h2>
               <p className="text-slate-300 mb-12 leading-relaxed text-lg">
-                I'm based in Peshawar, Pakistan, and currently looking for opportunities to leverage my AI engineering skills.
+                I'm based in Lahore, Pakistan, and currently looking for opportunities to leverage my AI engineering skills.
                 Whether you have a question about my research or want to collaborate, my inbox is open.
               </p>
               
@@ -793,7 +807,7 @@ const App = () => {
                  </div>
                  <div className="flex items-center gap-4 text-slate-300 text-lg">
                     <div className="p-3 bg-[#050914] rounded-full border border-white/10"><Globe size={20} className="text-fuchsia-500" /></div>
-                    <span>Peshawar, Pakistan</span>
+                    <span>Lahore, Pakistan</span>
                  </div>
                  <div className="flex items-center gap-4 text-slate-300 text-lg">
                     <div className="p-3 bg-[#050914] rounded-full border border-white/10"><Brain size={20} className="text-cyan-500" /></div>
